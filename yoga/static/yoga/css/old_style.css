@@ -1,0 +1,38 @@
+
+.imgtext {
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+    background-color:rgb(8, 8, 8);
+    padding: 0 2rem;
+    height: 2.5rem;
+    width: 68%;
+    color: white;
+    border-radius: 1rem;
+  }
+ 
+.img-fluid{
+    border-radius: 15px;
+    height: 300px;
+    width: 380px;
+    
+}
+img:hover{
+    opacity: .6;
+    transition: .7s;
+}
+ 
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+}
+ 
+.img-area{
+    padding:0 20px 20px;
+    position: relative;
+}

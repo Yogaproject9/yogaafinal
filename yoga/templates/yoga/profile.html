@@ -1,0 +1,384 @@
+{% load static%}
+{% load crispy_forms_tags %}
+
+
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+        <link rel= "stylesheet" href="{% static 'yoga/css/swiper-bundle.min.css' %}" />
+        <link rel= "stylesheet" href="{% static 'yoga/css/home.css' %}" />
+        <link rel="stylesheet" href="{% static 'yoga/css/userupdate.css' %}"/>     
+        <link rel="stylesheet" href="{% static 'yoga/css/profileupdate.css' %}"/>  
+        <link rel= "stylesheet" href="{% static 'yoga/css/bootstrap.css' %}" />
+        <link rel= "stylesheet" href="{% static 'yoga/css/begin_style.css' %}" />
+   
+  
+
+
+        <title>YujKriya</title>
+    </head>
+
+    <body>
+      <header class="header" id="header">
+          <nav class="nav container">
+              <a href="#" class="nav__logo">YujKriya</a>
+
+              <div class="nav__menu" id="nav-menu">
+                  <ul class="nav__list">
+                      <li>
+                        <div class = profileheadericon>
+                            <img src="{{user.profile.profile_image.url}}"  ><br>
+                        </div>  
+                      </li>
+                      <li class="nav__item">
+                          <a href="#home" class="nav__link active-link">Home</a>
+                      </li>
+                      <li class="nav__item">
+                          <a href="#about" class="nav__link">About</a>
+                      </li>
+                      <li class="nav__item">
+                          <a href="#Classes" class="nav__link">Classes</a>
+                      </li>
+                      
+                    
+                      <li class="nav__item">
+                          <a href="#contact" class="nav__link">Contact Us</a>
+                      </li>
+                      <li class="nav__item">
+                          <a href="{% url 'logout' %}" class="nav__link">Log Out</a>
+                      </li>   
+                            
+                  </ul>
+  
+ 
+
+
+          </nav>
+             <li class="nav__item">
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+                        {% endfor %}
+                        {% endif %}
+                        
+                              
+                              
+                            <div class="profilecard">  
+                                <img src="{{user.profile.profile_image.url}}"  width="130px" height="130px" style="border-radius: 50%"><br>
+                              {{ form.non_field_errors }}
+                                      <form method="POST" enctype="multipart/form-data">
+                                          {% csrf_token %}
+                                          <div class="form-group">
+                                            
+                                              {{ profile_form.profile_image }}
+                                             
+                                          </div><br>
+                                          <button type="submit" class="btn btn-primary">update</button>
+                                          
+                        
+                                        </form>
+                           </div>
+                </li>          
+      </header>
+
+      <main class="main">
+
+          <section class="home" id="home">
+              <img src="{%  static 'yoga/images/home.jpg' %}" alt="" class="home__img">
+
+              <div class="home__container container grid">
+                  <div class="home__data">
+                      <span class="home__data-subtitle"></span>
+                      <h1 class="home__data-title">Welcome To<br>The <b>Yoga<br>World</b></h1>
+                      <a href="#" class="button">Explore</a>
+
+                  </div>
+
+                  <div class="home__social">
+                      <a href="https://www.facebook.com/CapgeminiIndia/" target="_blank" class="home__social-link">
+                          <i class="ri-facebook-box-fill"></i>
+                      </a>
+                      <a href="https://www.instagram.com/capgeminiindia/?hl=en" target="_blank" class="home__social-link">
+                          <i class="ri-instagram-fill"></i>
+                      </a>
+                      <a href="https://twitter.com/capgemini?lang=en" target="_blank" class="home__social-link">
+                          <i class="ri-twitter-fill"></i>
+                      </a>
+                      <a href="https://www.linkedin.com/company/capgemini" target="_blank" class="home__social-link">
+                          <i class="ri-linkedin-fill"></i>
+                      </a>
+                  </div>
+
+              </div>
+          </section>
+
+          <section class="about section" id="about">
+              <div class="about__container container grid">
+                  <div class="about__data">
+                      <h2 class="section__title about__title">More About The Yoga</h2>
+                      <h2>          </h2><br>
+                      <p class="about__description">Yoga's origins can be traced to northern India over 5,000<br> years ago.
+                           The word yoga was first mentioned in ancient sacred <br>texts called the Rig Veda....
+                            Yoga is amongst the six schools of  <br>philosophy in Hinduism, and is also a major part 
+                            of Buddhism and its meditation practices.
+                      </p>
+                      <h2>          </h2><br>
+                      <a href="#" class="button">More...</a>
+                  </div>
+
+                  <div class="about__img">
+                      <div class="abo967ut__img-overlay">
+                          <img src="{%  static 'yoga/images/in.jpg' %}" alt="" class="about__img-one">
+                      </div>
+
+                      <div class="about__img-overlay">
+                          <img src="{%  static 'yoga/images/info.jpg' %}" alt="" class="about__img-two">
+                      </div>
+                  </div>
+              </div>
+          </section>
+     
+          <section class="discover section" id="Classes">
+              <h2 class="section__title">Join  <br> Classes Today</h2>
+              
+              <!--<div class="discover__container container swiper-container">
+                  <div class="swiper-wrapper">
+                      <div class="discover__card swiper-slide">
+                        <a class="navlink1" href="{% url 'intermediate' %}"><img src="{%  static 'yoga/images/inter.jpg' %}"
+                             alt="" class="discover__img"></a>
+                          <div class="discover__data">
+                              <h2 class="discover__title">Intermediate</h2>
+                          </div>
+                      </div>
+                      <div class="discover__card swiper-slide">
+                        <a class="navlink1" href="{% url 'advanced' %}"> <img src="{%  static 'yoga/images/Adv.jpg' %}" 
+                            alt="" class="discover__img"></a>
+                          <div class="discover__data">
+                              <h2 class="discover__title">Advanced</h2>
+                             
+                          </div>
+                      </div>
+                       <div class="discover__card swiper-slide">
+                          <img src="{%  static 'yoga/images/custom.jpg' %}" alt="" class="discover__img">
+                          <div class="discover__data">
+                              <h2 class="discover__title">Custom</h2>
+                         
+                          </div>
+                      </div> 
+                      <div class="discover__card swiper-slide">
+                        <a class="navlink1" href="{% url 'beginner' %}"> <img src="{%  static 'yoga/images/begi.jpg' %}" 
+                            alt="" class="discover__img"></a>
+                          <div class="discover__data">
+                              <h2 class="discover__title">Beginner</h2>
+                            
+                          </div>
+                      </div>
+                  </div>
+              </div> -->
+              <div class="class__container container grid">
+             
+
+                            <div class="discover__card">
+                                
+                                <a class="navlink1" href="{% url 'beginner' %}"> <img src="{%  static 'yoga/images/blo.png' %}" 
+                                    alt="" class="class__img"></a>
+                                    <div class="discover__data">
+                                        <h2 class="discover__title">Beginner</h2>
+                                      
+                                    </div>
+                            </div>
+
+                            <div class="discover__card">
+                                <a class="navlink1" href="{% url 'intermediate' %}"><img src="{%  static 'yoga/images/inter.jpg' %}"
+                                    alt="" class="class__img"></a>
+                                    <div class="discover__data">
+                                        <h2 class="discover__title">Intermediate</h2>
+                                      
+                                    </div>
+                             </div> 
+
+                   
+                    
+                           <div class="discover__card">
+                                <a class="navlink1" href="{% url 'advanced' %}"> <img src="{%  static 'yoga/images/Adv.jpg' %}" 
+                                    alt="" class="class__img"></a>
+                            
+                                    <div class="discover__data">
+                                        <h2 class="discover__title">Advanced</h2>
+                                      
+                                    </div>
+                            </div>
+                                    
+                       
+                   
+                
+                             
+              
+               
+        </div>
+          </section>
+
+          <section class="video section">
+              <h2 class="section__title">Video Tour</h2>
+
+              <div class="video__container container">
+                  <p class="video__description">YujKriya
+                  </p>
+
+                  <div class="video__content">
+                      <video id="video-file">
+                          <source src="{% static 'yoga/video/final.mp4' %}" type="video/mp4">
+                      </video>
+                      
+
+                      <button class="button button--flex video__button" id="video-button">
+                          <i class="ri-play-line video__button-icon" id="video-icon"></i>
+                      </button>
+                  </div>
+              </div>
+          </section>
+
+          <section id="contact" class="sectio white-smoke-color">
+            <div class="cont">
+                <div class="sectio-heading text-center">
+                    <h4 class="sectio-title">Contact Us</h4>
+                    <h1>                         </h1><br>
+                    <h1>                         </h1><br>
+                </div>
+                <div class="contact-content">
+                    <div class="message f-left">
+                        <h4 class="title">Mail Us</h4>
+                        <form action="post">
+                            <div class="input-name f-left">
+                                <input type="text" name="" placeholder="Name">
+                            </div>
+                            <div class="input-mail f-left">
+                                <input type="email" name="" placeholder="E-mail">
+                            </div>
+                            <div class="clear-fix"></div>
+                            <div class="input-subject">
+                                <input type="text" name="" placeholder="Subject">
+                            </div>
+                            <div class="input-textarea">
+                                <textarea name="message" cols="30" rows="10" placeholder="Message Here..."></textarea>
+                            </div>
+                            <button type="submit" name="submit" class="button">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                    <div class="contact-info f-left">
+                          <ul class="contact-details">
+                            <li>
+                                <div class="contact-icon f-left">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4 class="sub-title">Location</h4>
+                                    <p class="desc">10 xyz street NY 54321.</p>
+                                </div>
+                                <div class="clear-fix"></div>
+                            </li>
+                            <li>
+                                <div class="contact-icon f-left">
+                                    <i class="fa fa-phone icon icon-red"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4 class="sub-title">Call Us</h4>
+                                    <p class="desc">98765xx</p>
+                                </div>
+                                <div class="clear-fix"></div>
+                            </li>
+                            <li>
+                                <div class="contact-icon f-left">
+                                    <i class="fa fa-envelope icon icon-red"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4 class="sub-title">E-mail</h4>
+                                    <p class="desc">example@gmail.com</p>
+                                </div>
+                                <div class="clear-fix"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear-fix"></div>
+            </div>
+        </section>
+    
+      </main>
+          
+      <footer class="footer section">
+          <div class="footer__container container grid">
+              <div class="footer__content grid">
+                  <div class="footer__data">
+                      <h3 class="footer__title">Yoga</h3>
+                      <p class="footer__description"> “Yoga begins with listening.<br>
+                          When we listen,<br> we are giving space<br> to what is.”
+                      </p>
+                      <div>
+                          <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                              <i class="ri-facebook-box-fill"></i>
+                          </a>
+                          <a href="https://twitter.com/" target="_blank" class="footer__social">
+                              <i class="ri-twitter-fill"></i>
+                          </a>
+                          <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                              <i class="ri-instagram-fill"></i>
+                          </a>
+                          <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+                              <i class="ri-youtube-fill"></i>
+                          </a>
+                      </div>
+                  </div>
+  
+                  <div class="footer__data">
+                      <h3 class="footer__subtitle">About</h3>
+                      <ul>
+                          <li class="footer__item">
+                              <a href="" class="footer__link">About Us</a>
+                          </li>
+                      </ul>
+                  </div>
+  
+                  <div class="footer__data">
+                      <h3 class="footer__subtitle">Company</h3>
+                      <ul>
+                          <li class="footer__item">
+                              <a href="" class="footer__link">Team</a>
+                          </li>
+                      </ul>
+                  </div>
+  
+           
+              </div>
+
+              <div class="footer__rights">
+                  <p class="footer__copy">© 2021 Company, Inc. All rights reserved..</p>
+                  <div class="footer__terms">
+                      <a href="#" class="footer__terms-link">Terms & Agreements</a>
+                      <a href="#" class="footer__terms-link">Privacy Policy</a>
+                  </div>
+              </div>
+          </div>
+      </footer>
+
+      <a href="#" class="scrollup" id="scroll-up">
+          <i class="ri-arrow-up-line scrollup__icon"></i>
+      </a>
+      <script src="{%static 'yoga/js/scrollreveal.min.js'%}"></script>
+    <script src="{%  static 'yoga/js/swiper-bundle.min.js' %}"></script>
+      <script src="{%  static 'yoga/js/main.js' %}"></script>
+      <script src="{%  static 'yoga/js/profile.js' %}"></script>
+
+
+
+      
+
+  </body>
+</html>

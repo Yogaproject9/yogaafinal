@@ -1,0 +1,228 @@
+{% load static%}
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel= "stylesheet" href="{% static 'yoga/css/swiper-bundle.min.css' %}" />
+        <link rel= "stylesheet" href="{% static 'yoga/css/begin_style.css' %}" />
+        <link rel="stylesheet" href="{% static 'yoga/css/cameranew.css' %}">
+
+        <title>YujKriya</title>
+    </head>
+
+    <body>
+      <header class="header" id="header">
+          <nav class="nav container">
+              <a href="#" class="nav__logo">YujKriya</a>
+
+              <div class="nav__menu" id="nav-menu">
+                  <ul class="nav__list">
+                      <li class="nav__item">
+                          <a href="{% url 'profile' %}" class="nav__link active-link">Home</a>
+                      </li>
+                     
+                      <li class="nav__item">
+                          <a href="{% url 'logout' %}" class="nav__link">Log Out</a>
+                      </li>  
+                      <li>
+                        <div> 
+                            <button onclick="startCall()" >Start session</button>
+                        </div>
+                        
+                      </li>                      
+                  </ul>
+          </nav>
+      </header>
+
+      <main class="main">
+          <section class="class section" id="place">
+            <h1 style="color: #015d8e;text-align: center;">Beginner</h1>
+            <marquee style="color: #df2573;">*This site is under construction!</marquee>
+            <div id="video-call-div">
+                <video id="local-video" autoplay></video>
+            </div>
+          <!--  <button  style="color: #015d8e;align-self:flex-end;">
+                <i class="ri-arrow-right-line"></i>
+            </button>-->
+            <div class="class__container container grid">
+             
+
+                <div class="form-element">
+                    <input type="radio" name="platform" value="Trikonasan" id="Trikonasan">
+                    <label for="Trikonasan">
+                        <div class="icon">
+                            <div class="class__card">
+                                <img src="{%  static 'yoga/images/warm-up.jpg' %}" alt="" class="class__img">
+                            
+                                <div class="class__content">
+                                    <div class="class__data">
+                                        <h3 class="class__title">Warm Up</h3>
+                                        <span class="class__subtitle"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-element">
+                    <input type="radio" name="platform" value="Vrikshasan" id="Vrikshasan">
+                    <label for="Vrikshasan">
+                        <div class="icon">
+                            <div class="class__card">
+                                <img src="{%  static 'yoga/images/custom.jpg' %}" alt="" class="class__img">
+                            
+                                <div class="class__content">
+                                    <div class="class__data">
+                                        <h3 class="class__title">Suryanamaskar</h3>
+                                        <span class="class__subtitle"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-element">
+                    <input type="radio" name="platform" value="pinterest" id="pinterest">
+                    <label for="pinterest">
+                        <div class="icon">
+                            <div class="class__card">
+                                <img src="{%  static 'yoga/images/vri.jpg' %}" alt="" class="class__img">
+                            
+                                <div class="class__content">
+                                    <div class="class__data">
+                                        <h3 class="class__title">Vrikshasan</h3>
+                                        <span class="class__subtitle"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-element">
+                    <input type="radio" name="platform" value="tadasan" id="tadasan">
+                    <label for="tadasan">
+                        <div class="icon">
+                            <div class="class__card">
+                                <img src="{%  static 'yoga/images/suryanamaskar.jpg' %}" alt="" class="class__img">
+                            
+                                <div class="class__content">
+                                    <div class="class__data">
+                                        <h3 class="class__title">Tadasan</h3>
+                                        <span class="class__subtitle"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-element">
+                    <input type="radio" name="platform" value="pinter" id="pinter">
+                    <label for="pinter">
+                        <div class="icon">
+                            <div class="class__card">
+                                <img src="{%  static 'yoga/images/begi.jpg' %}" alt="" class="class__img">
+                            
+                                <div class="class__content">
+                                    <div class="class__data">
+                                        <h3 class="class__title">Balasan</h3>
+                                        <span class="class__subtitle"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-element">
+                    <input type="radio" name="platform" value="pi" id="pi">
+                    <label for="pi">
+                        <div class="icon">
+                            <div class="class__card">
+                                <img src="{%  static 'yoga/images/shavasan.jpg' %}" alt="" class="class__img">
+                            
+                                <div class="class__content">
+                                    <div class="class__data">
+                                        <h3 class="class__title">Shavasan</h3>
+                                        <span class="class__subtitle"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                
+        </div>
+       </section>
+     </main>
+          
+      <footer class="footer section">
+          <div class="footer__container container grid">
+              <div class="footer__content grid">
+                  <div class="footer__data">
+                      <h3 class="footer__title">Yoga</h3>
+                      <p class="footer__description"> “Yoga begins with listening.<br>
+                          When we listen,<br> we are giving space<br> to what is.”
+                      </p>
+                      <div>
+                          <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                              <i class="ri-facebook-box-fill"></i>
+                          </a>
+                          <a href="https://twitter.com/" target="_blank" class="footer__social">
+                              <i class="ri-twitter-fill"></i>
+                          </a>
+                          <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                              <i class="ri-instagram-fill"></i>
+                          </a>
+                          <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+                              <i class="ri-youtube-fill"></i>
+                          </a>
+                      </div>
+                  </div>
+  
+                  <div class="footer__data">
+                      <h3 class="footer__subtitle">About</h3>
+                      <ul>
+                          <li class="footer__item">
+                              <a href="" class="footer__link">About Us</a>
+                          </li>
+                      </ul>
+                  </div>
+  
+                  <div class="footer__data">
+                      <h3 class="footer__subtitle">Company</h3>
+                      <ul>
+                          <li class="footer__item">
+                              <a href="" class="footer__link">Team</a>
+                          </li>
+                      </ul>
+                  </div>
+  
+           
+              </div>
+
+              <div class="footer__rights">
+                  <p class="footer__copy">© 2021 Company, Inc. All rights reserved..</p>
+                  <div class="footer__terms">
+                      <a href="#" class="footer__terms-link">Terms & Agreements</a>
+                      <a href="#" class="footer__terms-link">Privacy Policy</a>
+                  </div>
+              </div>
+          </div>
+      </footer>
+
+      <a href="#" class="scrollup" id="scroll-up">
+          <i class="ri-arrow-up-line scrollup__icon"></i>
+      </a>
+      <script src="{% static 'yoga/js/camera.js' %}"></script>
+
+      <script src="{%static 'yoga/js/scrollreveal.min.js'%}"></script>
+    <script src="{%  static 'yoga/js/swiper-bundle.min.js' %}"></script>
+      <script src="{%  static 'yoga/js/main.js' %}"></script>
+  </body>
+</html>

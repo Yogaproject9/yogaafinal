@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{% static 'yoga/css/cameranew.css' %}">
+</head>
+<body>
+       <div> 
+        <button onclick="startCall()" >Start session</button>
+    </div>
+    <div id="video-call-div">
+        <video id="local-video" autoplay></video>
+    </div>
+    <script src="{% static 'yoga/js/camera.js' %}"></script>
+</body>

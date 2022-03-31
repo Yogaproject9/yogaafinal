@@ -1,0 +1,30 @@
+.profileheadericon img {
+
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.profilecard{
+    display: none;
+    place-items: center;
+    text-align: center;
+
+    background-color: aliceblue;
+
+    border-radius: 10px;
+
+    min-height: 40vh;
+
+    padding: 20px 0px;
+
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+
+    margin: 7vh auto;
+    width: 25rem;
+}
+
+.profilecardupdated{
+    display : grid;
+    transition: 400ms;
+
+}
